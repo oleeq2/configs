@@ -27,6 +27,7 @@ set softtabstop=4
 set tabstop=4
 set smartindent
 set laststatus=2 
+set number
 
 nmap <C-N>v :NERDTree<cr>
 vmap <C-N>v <esc>:NERDTree<cr>i
@@ -43,3 +44,23 @@ let g:airline_linecolumn_prefix = '¶ '
 let g:airline_fugitive_prefix = '⎇ '
 let g:airline_paste_symbol = 'ρ'
 
+nmap <F3> :copen<cr>
+vmap <F3> <esc>:copen<cr>
+imap <F3> <esc>:copen<cr>
+
+if filereadable("Makefile")
+    set makeprg=make
+else
+    set makeprg=gcc\ -Wall\ -o\ %<\ %
+endif
+map <F9> :make<cr>
+vmap <F9> <esc>:make<cr>i
+imap <F9> <esc>:make<cr>i
+
+
+
+imap [ []<LEFT>
+imap ( ()<LEFT>
+imap { {}<LEFT>
+
+colorscheme darkspectrum
